@@ -34,7 +34,7 @@ const CreateListingForm = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-3 border-2 border-accent rounded px-5 py-9">
+        <form onSubmit={handleSubmit}>
             <h2>Create New Listing</h2>
 
             <input
@@ -42,14 +42,12 @@ const CreateListingForm = () => {
                 placeholder="Title"
                 value={form.title}
                 onChange={(e) => setForm({ ...form, title: e.target.value })}
-                className="w-full p-2 border rounded"
                 required
                 />
             <textarea
                 placeholder="Description"
                 value={form.description}
                 onChange={(e) => setForm({ ...form, description: e.target.value })}
-                className="w-full p-2 border rounded"
                 rows={3}
                 required
                 />
@@ -58,13 +56,11 @@ const CreateListingForm = () => {
                 placeholder="Price"
                 value={form.price}
                 onChange={(e) => setForm({ ...form, price: e.target.value })}
-                className="w-full p-2 border rounded"
                 required
                 />
 
             <button
                 type="submit"
-                className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
                 disabled={mutation.isLoading}>
                 {mutation.isLoading ? 'Submitting...' : 'Post Listing'}
                 </button>

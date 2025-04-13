@@ -19,12 +19,12 @@ const CourseDetail = () => {
     if (isLoading) return <p>Loading Course...</p>;
     if (error) return <p>Could not load course.</p>;
     return (
-        <div className="max-w-3xl mx-auto px-4 py-10">
-          <h1 className="text-3xl font-bold text-primary mb-2">{course.title}</h1>
-          <p className="text-gray-600">{course.description}</p>
-          <p className="text-gray-400">{course.subject+" "+course.course_number}</p>
-          <p className="text-gray-400">Credits: {course.credits}</p>
-          <p className="text-gray-400 mb-6">Average Rating: {course.avg_rating}</p>
+        <div >
+          <h1 >{course.title}</h1>
+          <p >{course.description}</p>
+          <p >{course.subject+" "+course.course_number}</p>
+          <p >Credits: {course.credits}</p>
+          <p >Average Rating: {course.avg_rating}</p>
       
           <ReviewForm reviewableType="Course" reviewableId={id} />
           <ReviewList reviewableType="Course" reviewableId={id} />

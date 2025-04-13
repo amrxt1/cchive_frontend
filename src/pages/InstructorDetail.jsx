@@ -21,12 +21,12 @@ const InstructorDetail = () => {
     if (error) return <p>Could not load Instructor</p>
 
     return (
-        <div className="max-w-3xl mx-auto px-4 py-10">
-          <h1 className="text-3xl font-bold text-primary mb-2">
+        <div >
+          <h1 >
             {instructor.first_name} {instructor.last_name}
           </h1>
-          <p className="text-gray-600 text-1xl">{instructor.department}</p>
-          <p className="text-gray-400 mb-6">Average Rating: {instructor.avg_rating}</p>
+          <p >{instructor.department}</p>
+          <p >Average Rating: {instructor.avg_rating}</p>
 
           <ReviewForm reviewableType="Instructor" reviewableId={id} />
           <ReviewList reviewableType="Instructor" reviewableId={id} />

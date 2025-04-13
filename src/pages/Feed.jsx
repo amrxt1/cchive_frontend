@@ -47,12 +47,11 @@ const Feed = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-center text-3xl font-extrabold text-primary mb-10"
       >
         {user.first_name}'s Feed
       </motion.h1>
 
-      <div className="flex flex-col gap-10">
+      <div >
         {cards.map((card, i) => (
           <motion.div
             key={card.to}

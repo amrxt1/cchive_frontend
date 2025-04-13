@@ -58,16 +58,16 @@ const StudyGroupChat = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 border rounded shadow">
-      <h1 className="text-xl font-bold mb-4">Study Group Chat</h1>
+    <div >
+      <h1 >Study Group Chat</h1>
 
-      <div className="h-80 overflow-y-auto mb-4 border rounded p-2 bg-gray-50">
+      <div >
         {messages.map((msg, i) => (
           <div key={i} className="mb-2">
-            <span className="font-semibold text-blue-700">{msg.full_name}</span>:{' '}
-            <span className="text-gray-800">{msg.message || msg.content}</span>
+            <span >{msg.full_name}</span>:{' '}
+            <span >{msg.message || msg.content}</span>
             {msg.created_at && (
-              <span className="text-xs text-gray-500 ml-2">
+              <span >
                 ({new Date(msg.created_at).toLocaleTimeString()})
               </span>
             )}
@@ -76,15 +76,14 @@ const StudyGroupChat = () => {
         <div ref={messagesEndRef} />
       </div>
 
-      <form onSubmit={handleSubmit} className="flex gap-2">
+      <form onSubmit={handleSubmit} >
         <input
           type="text"
           value={content}
           onChange={(e) => setContent(e.target.value)}
           placeholder="Type your message..."
-          className="flex-1 p-2 border rounded"
         />
-        <button className="bg-blue-600 text-white px-4 rounded hover:bg-blue-700">
+        <button >
           Send
         </button>
       </form>

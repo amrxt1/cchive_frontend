@@ -16,27 +16,26 @@ export default function Home() {
   );
 
   return (
-    <div className="bg-background min-h-screen text-gray-800 p-6">
-      <section className="text-center py-12">
-        <h1 className="text-4xl font-bold text-primary mb-4">Get Connected.</h1>
-        <p className="text-muted mb-6">Search if your friends are here:</p>
+    <div >
+      <section >
+        <h1 >Get Connected.</h1>
+        <p >Search if your friends are here:</p>
         <input
           type="text"
           placeholder="Search by username"
-          className="w-full max-w-md px-4 py-2 border border-muted rounded"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <ul className="mt-4 space-y-2 max-w-md mx-auto">
+        <ul >
           {filtered.map((user) => (
-            <li key={user.username} className="bg-white p-3 rounded shadow text-left">
-              {user.first_name} {user.last_name} <span className="text-muted text-sm">(@{user.username})</span>
+            <li key={user.username} >
+              {user.first_name} {user.last_name} <span >(@{user.username})</span>
             </li>
           ))}
         </ul>
       </section>
 
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 mt-12 ml-22 mr-22">
+      <section >
         <Feature
           title="Marketplace"
           desc="Buy and sell books, gear, and more."
@@ -64,9 +63,9 @@ export default function Home() {
 
 function Feature({ title, desc, to }) {
   return (
-    <Link to={to} className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-      <h3 className="text-xl font-semibold text-primary">{title}</h3>
-      <p className="text-sm text-muted mt-1">{desc}</p>
+    <Link to={to} >
+      <h3 >{title}</h3>
+      <p >{desc}</p>
     </Link>
   );
 }
