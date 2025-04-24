@@ -57,7 +57,7 @@ function HeroSection() {
 function Feature({ title, desc, to, bgUrl }) {
   return (
     <div
-      className="col-span-6 w-[100%] aspect-2/1 flex flex-col justify-end  p-3 rounded-2xl bg-center bg-cover mb-12 "
+      className="col-span-6 w-[100%] aspect-2/1 flex flex-col justify-end  p-3 rounded-2xl bg-center bg-cover mb-12 lg:aspect-3/2 lg:col-span-3"
       style={{ backgroundImage: `url(${bgUrl})` }}
     >
       <Link to={to}>
