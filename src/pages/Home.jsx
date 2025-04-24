@@ -57,11 +57,11 @@ function HeroSection() {
 function Feature({ title, desc, to, bgUrl }) {
   return (
     <div
-      className="col-span-6 w-[100%] aspect-2/1 flex flex-col justify-end  p-3 rounded-2xl bg-center bg-cover mb-12"
+      className="col-span-6 w-[100%] aspect-2/1 flex flex-col justify-end  p-3 rounded-2xl bg-center bg-cover mb-12 "
       style={{ backgroundImage: `url(${bgUrl})` }}
     >
       <Link to={to}>
-        <h3 className="hover:text-primary text-2xl">{title}</h3>
+        <h3 className="hover:text-primary text-2xl font-special">{title}</h3>
       </Link>
       <p className="text-sm">{desc}</p>
     </div>
@@ -69,8 +69,10 @@ function Feature({ title, desc, to, bgUrl }) {
 }
 function Features() {
   return (
-    <div className="px-4 grid grid-cols-6 gap-4 pt-16">
-      <h1 className="text-3xl col-span-6">What Awaits you at CC Hive:</h1>
+    <div className="px-4 grid grid-cols-6 gap-4 pt-16 lg:p-32">
+      <h1 className="text-3xl col-span-6 font-special">
+        What Awaits you at CC Hive:
+      </h1>
       <Feature
         title="Marketplace"
         desc="Buy and sell books, gear, and more."
@@ -101,7 +103,7 @@ function Features() {
 
 function Testimonials() {
   return (
-    <div className="px-4">
+    <div className="px-4 lg:px-32">
       <h1>Testimonials</h1>
     </div>
   );
@@ -109,7 +111,7 @@ function Testimonials() {
 
 function JoinUs() {
   return (
-    <div className="mx-4 my-8 p-3 border-2 flex flex-col gap-3 rounded-2xl bg-accent">
+    <div className="mx-4 my-8 p-3 border-2 flex flex-col gap-3 rounded-2xl bg-accent lg:mx-32">
       <h1 className="text-2xl">Join the Fun</h1>
       <div>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor numquam
