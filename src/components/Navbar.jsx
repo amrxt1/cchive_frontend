@@ -12,14 +12,13 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="text-primary flex justify-between items-center px-4 py-3 bg-accent h-17">
+    <nav className="sticky top-0 z-50 flex justify-between items-center px-4 py-3 h-16 bg-background">
       <Link to="/home">
         <div className="flex w-12 items-center">
           <img src={logo} alt="CCHive logo" />
-          <span>CCHive</span>
         </div>
       </Link>
-      <div>
+      <div className="flex gap-4">
         {user ? (
           <>
             <span>

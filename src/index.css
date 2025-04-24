@@ -1,15 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&family=Space+Grotesk:wght@300..700&display=swap");
+
 @import "tailwindcss";
 
 @theme {
-  --color-background: #000000;
-  --color-text: #f9fafb;
+  --color-background: #0d0d0d;
+  --color-text: #f2f2f2;
 
-  --color-primary: #1d4ed8;
-  --color-secondary: #3b82f6;
-  --color-accent: #10b981;
+  --color-primary: #0077ff;
+  --color-secondary: #aaaaaa;
+  --color-accent: #ff8c42;
 
   --color-error: #ef4444;
   --color-success: #6b7280;
+
+  --font-special: "Space Grotesk", "sans-serif";
+  --font-display: "Roboto", "sans-serif";
 }
 
 body {
