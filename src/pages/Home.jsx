@@ -26,7 +26,7 @@ function HeroSection() {
       className="relative min-h-[calc(100vh-4rem)] bg-fixed bg-cover bg-center flex items-center lg:p-32 "
       style={{ backgroundImage: `url(${heroImage})` }}
     >
-      <div className="absolute inset-0 bg-black/81 z-1" />
+      <div className="absolute inset-0 backdrop-blur bg-background/81 z-1" />
       <div className="grid grid-cols-6 px-4 gap-y-4 pb-48 z-2">
         <div className="text-5xl col-span-6 font-special">Get Connected.</div>
         <div className="text-2xl col-span-5 font-special">
@@ -57,9 +57,10 @@ function HeroSection() {
 function Feature({ title, desc, to, bgUrl }) {
   return (
     <div
-      className="col-span-6 w-[100%] aspect-2/1 flex flex-col justify-end  p-3 rounded-2xl bg-center bg-cover mb-12 lg:aspect-3/2 lg:col-span-3"
+      className="col-span-6 w-[100%] aspect-2/1 flex flex-col justify-end  p-3 rounded-2xl bg-center bg-cover mb-12 lg:mb-0 lg:aspect-3/2 lg:col-span-3"
       style={{ backgroundImage: `url(${bgUrl})` }}
     >
+      <div className="backdrop-grayscale z-20"></div>
       <Link to={to}>
         <h3 className="hover:text-primary text-2xl font-special">{title}</h3>
       </Link>
@@ -69,7 +70,7 @@ function Feature({ title, desc, to, bgUrl }) {
 }
 function Features() {
   return (
-    <div className="px-4 grid grid-cols-6 gap-4 pt-16 lg:p-32">
+    <div className="px-4 grid grid-cols-6 gap-4 pt-16 lg:p-32 lg:gap-16">
       <h1 className="text-3xl col-span-6 font-special">
         What Awaits you at CC Hive:
       </h1>
@@ -95,31 +96,29 @@ function Features() {
         title="Course Reviews"
         desc="Leave reviews for instructors and courses."
         to="/courses"
-        bgUrl={reviewImage}
+        bgUrl={marketImage}
       />
-    </div>
-  );
-}
-
-function Testimonials() {
-  return (
-    <div className="px-4 lg:px-32">
-      <h1>Testimonials</h1>
     </div>
   );
 }
 
 function JoinUs() {
   return (
-    <div className="mx-4 my-8 p-3 border-2 flex flex-col gap-3 rounded-2xl bg-accent lg:mx-32">
-      <h1 className="text-2xl">Join the Fun</h1>
-      <div>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor numquam
-        laudantium aut reprehenderit ipsa iusto, dicta non illum dolore tempora
-        doloremque temporibus dolores ipsam, sapiente error, aperiam atque
-        veniam vitae!
+    <div className="mx-4 my-8 py-32 px-64 flex flex-col gap-8 rounded-2xl bg-text text-background lg:mx-32">
+      <h1 className="text-3xl font-special">Join the Fun</h1>
+      <div className="font-special text-2xl">
+        Since you've scrolled thus far, we would recommend joining and exploring
+        what you've just read about. Networking, Marketplace, Collaboration, and
+        much more... all at CC Hive! and the fun part? <br /> I'ts exclusive to
+        only the students!
       </div>
-      <Link to={"/register"}>Register</Link>
+      <div className="flex">
+        <Link to={"/register"} className="flex-1 ">
+          <button className="font-special bg-accent px-3 py-1 rounded hover:bg-background hover:text-accent w-[100%]">
+            Get Started
+          </button>
+        </Link>
+      </div>
     </div>
   );
 }
@@ -129,7 +128,6 @@ export default function Home() {
     <>
       <HeroSection />
       <Features />
-      <Testimonials />
       <JoinUs />
     </>
   );
