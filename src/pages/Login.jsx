@@ -64,11 +64,11 @@ const Login = () => {
             </button>
           </form>
 
-          <p className="pt-8 flex gap-4">
+          <p className="pt-8 flex gap-4 items-center">
             Don’t have an account?{" "}
             <Link
               to="/register"
-              className="bg-accent px-4 py-1 rounded text-center flex-1"
+              className="bg-accent px-4 py-1 rounded text-center flex-1 border hover:bg-background"
             >
               Register
             </Link>
