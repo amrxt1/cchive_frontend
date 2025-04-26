@@ -1,4 +1,5 @@
 import Container from "../shared/Container";
+import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 
@@ -30,14 +31,25 @@ const HeroSection = () => {
           <div className="text-2xl col-span-5 font-special">
             23% of students are on CC Hive. Check if your friends are here:
           </div>
-          <div className="col-span-4">
-            <input
-              className="border-1 border-secondary rounded px-2 w-2/3"
-              type="text"
-              placeholder="Search by Student ID"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-            />
+          <div className="col-span-5 ">
+            <div className="flex gap-4 items-center">
+              <input
+                className="border-1 border-secondary rounded px-2 w-6/10"
+                type="text"
+                placeholder="Search by Student ID"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+              />
+              <Link
+                to={"/register"}
+                className="flex-1 text-center bg-accent text-background 
+                                rounded border-2 border-accent
+                                hover:bg-background hover:text-accent
+                                transform transition hover:scale-107"
+              >
+                Get Started
+              </Link>
+            </div>
             <ul className="absolute text-text/77">
               {filtered.map((user) => (
                 <li key={user.username}>

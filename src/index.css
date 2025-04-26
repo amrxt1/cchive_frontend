@@ -4,16 +4,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #0d0d0d;
+  --color-background: #2f2f2f;
   --color-text: #f2f2f2;
 
-  --color-primary: #0077ff;
-  --color-secondary: #aaaaaa;
-  --color-accent: #0f8b8d;
+  --color-accent: #80ed99;
 
-  --color-error: #ef4444;
-  --color-success: #6b7280;
+  --color-primary: #77838d;
+  --color-secondary: #bfd7ea;
 
+  --color-error: #7d3744;
+  --color-success: #ee6055;
   --font-special: "Space Grotesk", "sans-serif";
   --font-display: "Roboto", "sans-serif";
 }
