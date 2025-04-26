@@ -23,8 +23,8 @@ function Feature({ title, desc, to, bgUrl }) {
 }
 const Features = () => {
   return (
-    <Container>
-      <div className="grid grid-cols-6 gap-4 pt-16 lg:p-32 lg:gap-16 ">
+    <Container className="pt-16">
+      <div className="grid grid-cols-6 gap-4 lg:gap-16">
         <h1 className="text-3xl col-span-6 font-special">
           What Awaits you at CC Hive:
         </h1>

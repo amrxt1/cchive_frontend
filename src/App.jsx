@@ -4,11 +4,11 @@ import AppRoutes from "./router/AppRoutes";
 
 const App = () => {
   return (
-    <div>
+    <>
       <Navbar />
       <AppRoutes />
       <Footer />
-    </div>
+    </>
   );
 };
 

@@ -3,19 +3,19 @@ import Container from "../shared/Container";
 
 const JoinUs = () => {
   return (
-    <Container>
+    <Container className="pt-16">
       <div
-        className="p-4 font-special rounded-2xl bg-background text-text 
+        className="p-16 text-center font-special rounded-2xl bg-background text-text 
                       border-2 border-accent
-                      lg:gap-8 lg:py-32 lg:px-64 lg:mx-32"
+                      lg:gap-8 lg:py-16 lg:px-64 "
       >
-        <div className="pb-4">
-          <h1 className="text-3xl ">Join the Fun</h1>
+        <div className="pb-8">
+          <h1 className="text-4xl font-bold text-accent">Join the Fun</h1>
           <div className=" text-2xl">
             Since you've scrolled thus far, we would recommend joining and
-            exploring what you've just read about. Networking, Marketplace,
-            Collaboration, and much more... all at CC Hive! and the fun part?{" "}
-            <br /> It's exclusive to only the students!
+            exploring. <br /> Networking, Marketplace, Collaboration, and much
+            more... all at <span className="text-accent">CC Hive</span>! and the
+            fun part? <br /> It's exclusive to only the students!
           </div>
         </div>
         <div className="flex">
