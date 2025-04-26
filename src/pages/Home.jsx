@@ -1,6 +1,6 @@
-import JoinUs from "../components/home/join-us";
-import HeroSection from "../components/home/hero-section";
-import Features from "../components/home/features";
+import JoinUs from "../components/home/JoinUs";
+import HeroSection from "../components/home/HeroSection";
+import Features from "../components/home/Features";
 
 export default function Home() {
   return (
