@@ -23,53 +23,50 @@ const Login = () => {
   return (
     <Container className="h-screen pt-16 sm:pt-0">
       <div className="h-full flex justify-center items-center">
-        <div className="text-[1.25rem]">
-          <h1 className="text-4xl font-bold pb-8">Welcome back to CCHive</h1>
-
+        <div className="space-y-4 bg-secondary px-4 py-8 rounded-2xl text-background">
+          <h1 className="text-5xl font-bold">Welcome back</h1>
           {error && (
             <p role="alert" className="font-semibold text-error pb-2">
               {error}
             </p>
           )}
-
-          <form
-            onSubmit={handleSubmit}
-            className=" w-full grid grid-cols-3 gap-y-4 gap-x-3"
-          >
-            <label className="col-span-1">Email</label>
-            <input
-              type="email"
-              placeholder="you@example.com"
-              value={form.email}
-              onChange={(e) => setForm({ ...form, email: e.target.value })}
-              required
-              className="border px-3 py-0.5 rounded font-special col-span-2"
-            />
-
-            <label className="col-span-1">Password</label>
-            <input
-              type="password"
-              placeholder="••••••••"
-              value={form.password}
-              onChange={(e) => setForm({ ...form, password: e.target.value })}
-              required
-              className="border px-3 py-0.5 rounded font-special col-span-2 "
-            />
+          <form onSubmit={handleSubmit} className="flex flex-col w-19/20 gap-4">
+            <div className="flex flex-col">
+              <label>Email</label>
+              <input
+                className="text-2xl border-2 px-4 py-2 rounded                 
+                focus:outline-none focus:ring-2 focus:ring-accent"
+                type="email"
+                placeholder="you@example.com"
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                required
+              />
+            </div>
+            <div className="flex flex-col">
+              <label>Password</label>
+              <input
+                className="text-2xl border-2 px-4 py-2 rounded
+                focus:outline-none focus:ring-2 focus:ring-accent"
+                type="password"
+                placeholder="••••••••"
+                value={form.password}
+                onChange={(e) => setForm({ ...form, password: e.target.value })}
+                required
+              />
+            </div>
 
             <button
               type="submit"
-              className="col-span-3 text-2xl bg-accent rounded border-2 hover:bg-background hover:text-accent w-full "
+              className="border-2 rounded border-background bg-accent font-bold hover:cursor-pointer"
             >
               Log In
             </button>
           </form>
 
-          <p className="pt-8 flex gap-4 items-center">
+          <p className="">
             Don’t have an account?{" "}
-            <Link
-              to="/register"
-              className="bg-accent px-4 py-1 rounded text-center flex-1 border hover:bg-background"
-            >
+            <Link to="/register" className="text-primary font-bold">
               Register
             </Link>
           </p>
