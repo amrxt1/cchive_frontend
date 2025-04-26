@@ -7,7 +7,7 @@ const JoinUs = () => {
       <div
         className="p-16 text-center font-special rounded-2xl  
                       border-2 border-primary
-                      lg:gap-8 lg:py-16 lg:px-64 "
+                      lg:gap-8 lg:py-16 lg:px-64 bg-secondary text-background"
       >
         <div className="pb-8">
           <h1 className="text-4xl font-bold text-primary">Join the Fun</h1>

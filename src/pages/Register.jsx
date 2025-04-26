@@ -40,84 +40,101 @@ const Register = () => {
   return (
     <Container className="h-screen">
       <div className="flex items-center h-full justify-center">
-        <div>
-          <h1 className="text-3xl font-bold pb-8">
-            Create your CCHive Account
-          </h1>
+        <div className="space-y-4 bg-secondary px-4 py-8 rounded-2xl text-background max-w-screen">
+          <h1 className="text-5xl font-bold">Create your account</h1>
 
           {error && (
             <div className="mb-4 text-error font-semibold">{error}</div>
           )}
 
-          <form
-            onSubmit={handleSubmit}
-            className="grid grid-cols-3 gap-y-4 gap-x-8"
-          >
-            <label className="col-span-1">Email</label>
-            <input
-              type="email"
-              placeholder="you@example.com"
-              value={form.email}
-              onChange={(e) => setForm({ ...form, email: e.target.value })}
-              required
-              className="col-span-2 border px-3 py-0.5 rounded"
-            />
-
-            <label>First Name</label>
-            <input
-              type="text"
-              placeholder="First name"
-              value={form.first_name}
-              onChange={(e) => setForm({ ...form, first_name: e.target.value })}
-              className="col-span-2 border px-3 py-0.5 rounded"
-              required
-            />
-
-            <label>Last Name</label>
-            <input
-              type="text"
-              placeholder="Last name"
-              value={form.last_name}
-              onChange={(e) => setForm({ ...form, last_name: e.target.value })}
-              className="col-span-2 border px-3 py-0.5 rounded"
-              required
-            />
-
-            <label>Password</label>
-            <input
-              type="password"
-              placeholder="••••••••"
-              value={form.password}
-              onChange={(e) => setForm({ ...form, password: e.target.value })}
-              className="col-span-2 border px-3 py-0.5 rounded"
-              required
-            />
-
-            <label>Confirm Password</label>
-            <input
-              type="password"
-              placeholder="••••••••"
-              value={form.password_confirmation}
-              onChange={(e) =>
-                setForm({ ...form, password_confirmation: e.target.value })
-              }
-              className="col-span-2 border px-3 py-0.5 rounded"
-              required
-            />
-
-            <label>Bio (optional)</label>
-            <textarea
-              placeholder="Tell us a little about yourself..."
-              value={form.bio}
-              onChange={(e) => setForm({ ...form, bio: e.target.value })}
-              className="col-span-2 border px-3 py-0.5 rounded"
-              rows={3}
-            />
+          <form onSubmit={handleSubmit} className="flex flex-col w-[95%] gap-4">
+            <div className="flex flex-col">
+              <label className="">Email</label>
+              <input
+                type="email"
+                placeholder="you@example.com"
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                required
+                className="text-xl border-2 px-4 py-0.5 rounded                 
+                focus:outline-none focus:ring-2 focus:ring-accent"
+              />
+            </div>
+            <div className="flex flex-col gap-4 sm:flex-row sm:min-w-0">
+              <div className="flex flex-col flex-1 min-w-0">
+                <label>First Name</label>
+                <input
+                  type="text"
+                  placeholder="First name"
+                  value={form.first_name}
+                  onChange={(e) =>
+                    setForm({ ...form, first_name: e.target.value })
+                  }
+                  className="text-xl border-2 px-4 py-0.5 rounded                 
+                focus:outline-none focus:ring-2 focus:ring-accent"
+                  required
+                />
+              </div>
+              <div className="flex flex-col flex-1 min-w-0">
+                <label>Last Name</label>
+                <input
+                  type="text"
+                  placeholder="Last name"
+                  value={form.last_name}
+                  onChange={(e) =>
+                    setForm({ ...form, last_name: e.target.value })
+                  }
+                  className="text-xl border-2 px-4 py-0.5 rounded                 
+                focus:outline-none focus:ring-2 focus:ring-accent"
+                  required
+                />
+              </div>
+            </div>
+            <div className="flex flex-col gap-4 sm:flex-row sm:min-w-0 ">
+              <div className="flex flex-col flex-1 min-w-0">
+                <label>Password</label>
+                <input
+                  type="password"
+                  placeholder="••••••••"
+                  value={form.password}
+                  onChange={(e) =>
+                    setForm({ ...form, password: e.target.value })
+                  }
+                  className="text-xl border-2 px-4 py-0.5 rounded                 
+                focus:outline-none focus:ring-2 focus:ring-accent"
+                  required
+                />
+              </div>
+              <div className="flex flex-col flex-1 min-w-0">
+                <label>Confirm Password</label>
+                <input
+                  type="password"
+                  placeholder="••••••••"
+                  value={form.password_confirmation}
+                  onChange={(e) =>
+                    setForm({ ...form, password_confirmation: e.target.value })
+                  }
+                  className="text-xl border-2 px-4 py-0.5 rounded                 
+                focus:outline-none focus:ring-2 focus:ring-accent"
+                  required
+                />
+              </div>
+            </div>
+            <div className="flex flex-col">
+              <label>Bio (optional)</label>
+              <textarea
+                placeholder="Tell us a little about yourself..."
+                value={form.bio}
+                onChange={(e) => setForm({ ...form, bio: e.target.value })}
+                className="text-xl border-2 px-4 py-2 rounded                 
+                focus:outline-none focus:ring-2 focus:ring-accent"
+                rows={3}
+              />
+            </div>
 
             <button
               type="submit"
-              className="col-span-3 text-2xl bg-accent rounded 
-              border-2 hover:bg-background hover:text-accent w-full "
+              className="border-2 text-lg py-1 rounded border-background bg-accent font-bold hover:cursor-pointer"
             >
               Sign Up
             </button>
