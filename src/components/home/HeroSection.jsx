@@ -20,10 +20,10 @@ const HeroSection = () => {
   return (
     <Container
       style={{ backgroundImage: "url('src/assets/hero-image.jpg')" }}
-      className="bg-center bg-cover bg-fixed pt-16"
+      className="relative bg-cover sm:bg-fixed pt-64 py-32"
     >
-      <div className="absolute inset-0 bg-black/44 backdrop-blur-sm z-0"></div>
-      <div className="min-h-[calc(100vh-4rem)] flex items-center">
+      <div className="flex items-center">
+        <div className="absolute inset-0 backdrop-blur" />
         <div className="grid grid-cols-6 gap-y-4 pb-48 z-2">
           <div className="text-5xl col-span-6 font-special font-bold">
             Get Connected.
@@ -45,8 +45,23 @@ const HeroSection = () => {
                 className="flex-1 text-center bg-accent text-background 
                                 rounded border-2 border-accent
                                 hover:bg-background hover:text-accent
-                                transform transition hover:scale-107"
+                                transform transition hover:scale-107 group
+                                "
               >
+                <div className="w-full group group-hover:animate-spin">
+                  <img
+                    src="/icon.svg"
+                    alt="logo"
+                    className="w-8 h-8 absolute hidden left-1/9
+                   group-hover:animate-spin group-hover:block "
+                  />
+                  <img
+                    src="/icon.svg"
+                    alt="logo"
+                    className="w-8 h-8 absolute hidden left-2/3
+                  group-hover:animate-spin group-hover:block"
+                  />
+                </div>
                 Get Started
               </Link>
             </div>

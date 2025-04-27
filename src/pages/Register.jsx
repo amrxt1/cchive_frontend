@@ -38,7 +38,7 @@ const Register = () => {
   };
 
   return (
-    <Container className="h-screen">
+    <Container className="min-h-screen pt-32">
       <div className="flex items-center h-full justify-center">
         <div className="space-y-4 bg-secondary px-4 py-8 rounded-2xl text-background max-w-screen">
           <h1 className="text-5xl font-bold">Create your account</h1>

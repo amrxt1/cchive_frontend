@@ -21,7 +21,7 @@ const Login = () => {
   };
 
   return (
-    <Container className="h-screen pt-16 sm:pt-0">
+    <Container className="h-screen sm:pt-0">
       <div className="h-full flex justify-center items-center">
         <div className="space-y-4 bg-secondary px-4 py-8 rounded-2xl text-background">
           <h1 className="text-5xl font-bold">Welcome back</h1>
@@ -58,7 +58,7 @@ const Login = () => {
 
             <button
               type="submit"
-              className="border-2 rounded border-background bg-accent font-bold hover:cursor-pointer"
+              className="border-2 rounded py-2 border-background bg-accent font-bold hover:cursor-pointer"
             >
               Log In
             </button>

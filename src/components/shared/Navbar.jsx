@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
-import logo from "../../assets/logo.png";
+import logo from "/icon.svg";
 
 const Navbar = () => {
   const { user, logout } = useAuth();
@@ -12,18 +12,15 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-background fixed w-full top-0 z-50 flex justify-between items-center px-4 py-3 h-16">
+    <nav className="bg-background sticky w-full top-0 z-50 flex justify-between items-center px-4 py-3 h-16">
       <Link to="/home">
         <div className="flex w-12 items-center">
           <img src={logo} alt="CCHive logo" />
         </div>
       </Link>
-      <div className="flex gap-4">
+      <div className="hidden sm:flex sm:gap-4">
         {user ? (
           <>
-            <span>
-              Welcome, <span>{user.first_name + " " + user.last_name}</span>
-            </span>
             <Link to="/feed">Feed</Link>
             <Link to="/marketplace">Marketplace</Link>
             <Link to="/study_groups">Study Groups</Link>

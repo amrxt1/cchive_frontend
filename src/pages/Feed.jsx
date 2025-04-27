@@ -1,70 +1,22 @@
 import { useAuth } from "../context/AuthContext";
-import Card from "../components/Card";
-import { motion } from "framer-motion";
+import RecentListings from "../components/feed/RecentListings";
+import RecentReviews from "../components/feed/RecentReviews";
+import StudyGroupActivity from "../components/feed/StudyGroupActivity";
+import Container from "../components/shared/Container";
 
 const Feed = () => {
   const { user } = useAuth();
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.15,
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    }),
-  };
-
-  const cards = [
-    {
-      title: "Browse Marketplace",
-      desc: "Buy and sell stuff with other students",
-      to: "/marketplace",
-    },
-    {
-      title: "Join Study Groups",
-      desc: "Connect, chat, and collaborate",
-      to: "/study_groups",
-    },
-    {
-      title: "Book a Tutor",
-      desc: "Find help from your peers",
-      to: "/tutoring/request",
-    },
-    {
-      title: "Leave a Review",
-      desc: "Share your course and instructor experiences",
-      to: "/courses",
-    },
-  ];
-
   return (
-    <div className="p-7">
-      <motion.h1
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        {user.first_name}'s Feed
-      </motion.h1>
-
-      <div >
-        {cards.map((card, i) => (
-          <motion.div
-            key={card.to}
-            custom={i}
-            initial="hidden"
-            animate="visible"
-            variants={cardVariants}
-          >
-            <Card {...card} />
-          </motion.div>
-        ))}
-      </div>
-    </div>
+    <>
+      <Container className="min-h-screen">
+        <div className="pt-4 lg:pt-8 font-semibold text-xl text-primary ">
+          {user.first_name}'s Feed
+        </div>
+        <RecentListings />
+        <StudyGroupActivity />
+        <RecentReviews />
+      </Container>
+    </>
   );
 };
 
