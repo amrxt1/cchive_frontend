@@ -32,11 +32,23 @@ const StudyGroups = () => {
     <Container className="min-h-screen">
       {console.log(groups)}
       <div>
-        <h1>Study Groups</h1>
+        <h1 className="text-3xl font-bold text-primary flex items-center gap-2">
+          Study Groups{" "}
+        </h1>
 
-        <div className="grid grid-cols-2 gap-8 border">
+        <div className="grid grid-cols-2 gap-8 pt-4 ">
           <div>
-            <h2>Available Groups</h2>
+            <div className="flex items-baseline gap-2 ">
+              <h2 className="text-2xl font-semibold text-primary">
+                Available Groups
+              </h2>
+              <button
+                className="hover:cursor-pointer hover:bg-accent/70 font-bold
+                                 bg-accent/50 text-primary px-4 rounded-lg "
+              >
+                Create New
+              </button>
+            </div>
             {isLoading ? (
               <p className="text-gray-500">Loading...</p>
             ) : (
@@ -57,7 +69,9 @@ const StudyGroups = () => {
             )}
           </div>
           <div>
-            <h2>Joined Groups</h2>
+            <h2 className="text-2xl font-semibold text-primary">
+              Joined Groups
+            </h2>
             {isLoading ? (
               <p className="text-gray-500">Loading...</p>
             ) : (
@@ -67,10 +81,10 @@ const StudyGroups = () => {
                     <h3 className="text-2xl font-semibold">{group.name}</h3>
                     <p>{group.description}</p>
                     <button
-                      onClick={() => handleJoin(group.id)}
+                      onClick={() => navigate(`/study_groups/${group.id}`)}
                       className="text-primary bg-surface px-3 py-1 rounded-lg"
                     >
-                      Join
+                      Chat
                     </button>
                   </li>
                 ))}
