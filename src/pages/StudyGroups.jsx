@@ -1,22 +1,23 @@
-import { useState } from 'react';
-import { useStudyGroups } from '../hooks/useStudyGroups';
-import { useCreateStudyGroup } from '../hooks/useCreateStudyGroup';
-import { useJoinStudyGroup } from '../hooks/useJoinStudyGroup';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { useStudyGroups } from "../hooks/useStudyGroups";
+import { useCreateStudyGroup } from "../hooks/useCreateStudyGroup";
+import { useJoinStudyGroup } from "../hooks/useJoinStudyGroup";
+import { useNavigate } from "react-router-dom";
+import Container from "../components/shared/Container";
 
 const StudyGroups = () => {
   const { data: groups, isLoading } = useStudyGroups();
   const { mutate: createGroup } = useCreateStudyGroup();
   const { mutate: joinGroup } = useJoinStudyGroup();
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
   const navigate = useNavigate();
 
   const handleCreate = (e) => {
     e.preventDefault();
     createGroup({ study_group: { name, description } });
-    setName('');
-    setDescription('');
+    setName("");
+    setDescription("");
   };
 
   const handleJoin = (id) => {
@@ -28,66 +29,87 @@ const StudyGroups = () => {
   };
 
   return (
-    <div >
-      <h1 >Study Groups</h1>
+    <Container className="min-h-screen">
+      {console.log(groups)}
+      <div>
+        <h1>Study Groups</h1>
 
-      <div >
-        <div>
-          <h2 >Available Groups</h2>
-          {isLoading ? (
-            <p className="text-gray-500">Loading...</p>
-          ) : (
-            <ul >
-              {groups.map((group) => (
-                <li key={group.id} >
-                  <h3 >{group.name}</h3>
-                  <p >{group.description}</p>
-                  <button
-                    onClick={() => handleJoin(group.id)}
-                  >
-                    Join
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
+        <div className="grid grid-cols-2 gap-8 border">
+          <div>
+            <h2>Available Groups</h2>
+            {isLoading ? (
+              <p className="text-gray-500">Loading...</p>
+            ) : (
+              <ul className="flex flex-col gap-4 pt-4">
+                {groups.available.map((group) => (
+                  <li key={group.id}>
+                    <h3 className="text-2xl font-semibold">{group.name}</h3>
+                    <p>{group.description}</p>
+                    <button
+                      onClick={() => handleJoin(group.id)}
+                      className="text-primary bg-surface px-3 py-1 rounded-lg"
+                    >
+                      Join
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+          <div>
+            <h2>Joined Groups</h2>
+            {isLoading ? (
+              <p className="text-gray-500">Loading...</p>
+            ) : (
+              <ul className="flex flex-col gap-4 pt-4">
+                {groups.joined.map((group) => (
+                  <li key={group.id}>
+                    <h3 className="text-2xl font-semibold">{group.name}</h3>
+                    <p>{group.description}</p>
+                    <button
+                      onClick={() => handleJoin(group.id)}
+                      className="text-primary bg-surface px-3 py-1 rounded-lg"
+                    >
+                      Join
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
 
-        <div>
-          <h2 >Create New Group</h2>
-          <div >
-            <form onSubmit={handleCreate} className="space-y-4">
+          <div className="hidden">
+            <h2>Create New Group</h2>
             <div>
-              <label >Group Name</label>
-              <input
-                placeholder="Quantum Mechanics Enthusiasts"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
-            </div>
+              <form onSubmit={handleCreate} className="space-y-4">
+                <div>
+                  <label>Group Name</label>
+                  <input
+                    placeholder="Quantum Mechanics Enthusiasts"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                  />
+                </div>
 
-            <div>
-              <label >Description</label>
-              <textarea
-                placeholder="We solve problem sets and drink too much coffee"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                required
-                rows={4}
-              />
-            </div>
+                <div>
+                  <label>Description</label>
+                  <textarea
+                    placeholder="We solve problem sets and drink too much coffee"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    required
+                    rows={4}
+                  />
+                </div>
 
-            <button
-              type="submit"
-            >
-              Create Group
-            </button>
-            </form>
+                <button type="submit">Create Group</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 
