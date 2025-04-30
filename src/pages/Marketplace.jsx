@@ -13,7 +13,7 @@ const Marketplace = () => {
         <h1>Marketplace</h1>
         <button
           onClick={() => setShowForm(!showForm)}
-          clasName="bg-primary text-white px-4 py-2 rounded hover:bg-blue-800 transition"
+          className="bg-primary text-white px-4 py-2 rounded hover:bg-blue-800 transition"
         >
           {showForm ? "Cancel" : "Create Listing"}
         </button>

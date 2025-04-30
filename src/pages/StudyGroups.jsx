@@ -37,6 +37,7 @@ const StudyGroups = () => {
         <h1 className="text-3xl font-bold text-primary flex items-center gap-2">
           Study Groups{" "}
         </h1>
+        <Link to={"/approve_memberships"}>Approve Memberships</Link>
 
         <div className="grid grid-cols-2 gap-8 pt-4 ">
           <div>
