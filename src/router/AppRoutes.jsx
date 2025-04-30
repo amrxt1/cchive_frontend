@@ -17,6 +17,7 @@ import StudyGroupChat from "../pages/StudyGroupChat";
 import PrivateRoute from "../components/PrivateRoute";
 import UserProfile from "../pages/UserProfile";
 import PendingMemberships from "../pages/PendingMemberships";
+import Reviews from "../pages/Reviews";
 
 const AppRoutes = () => {
   const { user } = useAuth();
@@ -47,6 +48,14 @@ const AppRoutes = () => {
         element={
           <PrivateRoute>
             <Marketplace />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/reviews"
+        element={
+          <PrivateRoute>
+            <Reviews />
           </PrivateRoute>
         }
       />

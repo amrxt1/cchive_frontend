@@ -24,8 +24,7 @@ const Navbar = () => {
             <Link to="/feed">Feed</Link>
             <Link to="/marketplace">Marketplace</Link>
             <Link to="/study_groups">Study Groups</Link>
-            <Link to="/courses">Courses</Link>
-            <Link to="/instructors">Instructors</Link>
+            <Link to="/reviews">Reviews</Link>
             <Link to="/tutoring">Tutor</Link>
             <Link to="/tutoring/request">Get Tutored</Link>
             <button onClick={handleLogout}>Logout</button>
