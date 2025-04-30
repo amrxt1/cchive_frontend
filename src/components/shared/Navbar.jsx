@@ -21,6 +21,7 @@ const Navbar = () => {
       <div className="hidden sm:flex sm:gap-4">
         {user ? (
           <>
+            <Link to={"/approve_memberships"}>Approve Memberships</Link>
             <Link to="/feed">Feed</Link>
             <Link to="/marketplace">Marketplace</Link>
             <Link to="/study_groups">Study Groups</Link>

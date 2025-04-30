@@ -1,3 +1,4 @@
+import Container from "../components/shared/Container";
 import { useEffect, useState, useRef } from "react";
 import { useCable } from "../context/CableContext";
 import api from "../lib/api";
@@ -59,32 +60,34 @@ const StudyGroupChat = () => {
   };
 
   return (
-    <div>
-      <h1>Study Group Chat</h1>
-
+    <Container>
       <div>
-        {messages.map((msg, i) => (
-          <div key={i} className="mb-2">
-            <span>{msg.full_name}</span>:{" "}
-            <span>{msg.message || msg.content}</span>
-            {msg.created_at && (
-              <span>({new Date(msg.created_at).toLocaleTimeString()})</span>
-            )}
-          </div>
-        ))}
-        <div ref={messagesEndRef} />
-      </div>
+        <h1>Study Group Chat</h1>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          placeholder="Type your message..."
-        />
-        <button>Send</button>
-      </form>
-    </div>
+        <div>
+          {messages.map((msg, i) => (
+            <div key={i} className="mb-2">
+              <span>{msg.full_name}</span>:{" "}
+              <span>{msg.message || msg.content}</span>
+              {msg.created_at && (
+                <span>({new Date(msg.created_at).toLocaleTimeString()})</span>
+              )}
+            </div>
+          ))}
+          <div ref={messagesEndRef} />
+        </div>
+
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            placeholder="Type your message..."
+          />
+          <button>Send</button>
+        </form>
+      </div>
+    </Container>
   );
 };
 

@@ -4,7 +4,7 @@ import { useCreateStudyGroup } from "../hooks/useCreateStudyGroup";
 import { useJoinStudyGroup } from "../hooks/useJoinStudyGroup";
 import { useNavigate } from "react-router-dom";
 import Container from "../components/shared/Container";
-
+import { Link } from "react-router-dom";
 const StudyGroups = () => {
   const { data: groups, isLoading } = useStudyGroups();
   const { mutate: createGroup } = useCreateStudyGroup();
@@ -23,14 +23,16 @@ const StudyGroups = () => {
   const handleJoin = (id) => {
     joinGroup(id, {
       onSuccess: () => {
-        navigate(`/study_groups/${id}`);
+        alert("Join request sent! Waiting for approval.");
+      },
+      onError: () => {
+        alert("Could not send join request.");
       },
     });
   };
 
   return (
     <Container className="min-h-screen">
-      {console.log(groups)}
       <div>
         <h1 className="text-3xl font-bold text-primary flex items-center gap-2">
           Study Groups{" "}
@@ -92,7 +94,7 @@ const StudyGroups = () => {
             )}
           </div>
 
-          <div className="hidden">
+          <div className="">
             <h2>Create New Group</h2>
             <div>
               <form onSubmit={handleCreate} className="space-y-4">
