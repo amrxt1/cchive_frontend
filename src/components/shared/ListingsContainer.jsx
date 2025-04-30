@@ -1,11 +1,9 @@
 import Listing from "./Listing";
 
-const ListingsContainer = ({ listings }) => {
+const ListingsContainer = ({ listings, heading }) => {
   return (
     <>
-      <div className="pt-4 text-2xl font-bold  text-primary">
-        Recent Listings
-      </div>
+      <div className="pt-4 text-2xl font-bold  text-primary">{heading}</div>
       <div className="grid grid-cols-1 pt-2 gap-4 lg:grid-cols-3">
         {listings?.map((listing) => (
           <Listing listing={listing} key={listing.id} />

@@ -10,7 +10,7 @@ const RecentListings = () => {
 
   return (
     <>
-      <ListingsContainer listings={listings} />
+      <ListingsContainer listings={listings} heading={"Recent Listings"} />
     </>
   );
 };
