@@ -42,7 +42,7 @@ const HeroSection = () => {
               />
               <Link
                 to={"/register"}
-                className="flex-1 text-center bg-accent text-background 
+                className="flex-1 text-center bg-accent text-background
                                 rounded border-2 border-accent
                                 hover:bg-background hover:text-accent
                                 transform transition hover:scale-107 group

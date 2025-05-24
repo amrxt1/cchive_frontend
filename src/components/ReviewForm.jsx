@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useReviewSubmit } from "../hooks/useReviewSubmit";
 
-const ReviewForm = ({ reviewableType, reviewableId }) => {
-  const [form, setForm] = useState({ content: '', rating: 1 });
+const ReviewForm = ({ reviewableType, reviewableId, className }) => {
+  const [form, setForm] = useState({ content: "", rating: 1 });
 
   const { mutate, isLoading, isError } = useReviewSubmit({
     reviewableType,
@@ -12,12 +12,14 @@ const ReviewForm = ({ reviewableType, reviewableId }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     mutate(form);
-    setForm({ content: '', rating: 1 });
+    setForm({ content: "", rating: 1 });
   };
 
   return (
-    <div >
-      <h3 >Leave a Review</h3>
+    <div className={className}>
+      <h3 className="text-primary font-semibold font-special text-xl">
+        Leave a Review
+      </h3>
       <form onSubmit={handleSubmit} className="space-y-4">
         <textarea
           required
@@ -28,20 +30,19 @@ const ReviewForm = ({ reviewableType, reviewableId }) => {
         ></textarea>
 
         <div>
-          <label >Rating (1 to 5)</label>
+          <label>Rating (1 to 5)</label>
           <input
             type="number"
             min="1"
             max="5"
             value={form.rating}
-            onChange={(e) => setForm({ ...form, rating: Number(e.target.value) })}
+            onChange={(e) =>
+              setForm({ ...form, rating: Number(e.target.value) })
+            }
           />
         </div>
 
-        <button
-          type="submit"
-          disabled={isLoading}
-        >
+        <button type="submit" disabled={isLoading}>
           {isLoading ? "Submitting..." : "Submit Review"}
         </button>
 
