@@ -17,9 +17,7 @@ const ReviewForm = ({ reviewableType, reviewableId, className }) => {
 
   return (
     <div className={className}>
-      <h3 className="text-primary font-semibold font-special text-xl">
-        Leave a Review
-      </h3>
+      <h3 className="text-primary font-semibold text-xl">Leave a Review</h3>
       <form onSubmit={handleSubmit} className="space-y-4">
         <textarea
           required

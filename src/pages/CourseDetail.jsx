@@ -31,13 +31,16 @@ const CourseDetail = () => {
           <p className="font-semibold">
             {course.subject + " " + course.course_number}
           </p>
-          <p className="py-2">{course.description}</p>
-          <p className="text-secondary font-semibold">
-            Credits: <span className="text-accent">{course.credits}</span>
+          <p className="py-2 text-text-muted">{course.description}</p>
+          <p>
+            <span className="text-secondary font-semibold">Credits:</span>{" "}
+            {course.credits}
           </p>
-          <p className="text-secondary font-semibold">
-            Average Rating:{" "}
-            <span className="text-accent">{course.avg_rating}</span>
+          <p>
+            <span className="text-secondary font-semibold">
+              Average Rating:
+            </span>{" "}
+            {course.avg_rating}
           </p>
         </div>
         <div className="px-8 py-4 mt-4 bg-surface rounded-lg ">

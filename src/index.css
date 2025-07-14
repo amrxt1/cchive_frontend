@@ -5,18 +5,22 @@
 
 @theme {
   --color-background: #1a1a1a;
-  --color-text: #f2f2f2;
-  --color-surface: #262626;
+  --color-surface: #3c3c3c;
 
-  --color-accent: #ffdac1;
+  --color-text: #f2f2f2;
+  --color-text-muted: #d1d5db;
+  --color-text-tertiary: #9ca3af;
+  --color-text-disabled: #6b7280;
 
   --color-primary: #aecbfa;
-  --color-secondary: #ffb6b9;
+  --color-secondary: #6ee7b7;
+  --color-accent: #ffdac1;
 
-  --color-error: #7d3744;
-  --color-success: #ee6055;
-  --font-special: "Space Grotesk", "sans-serif";
-  --font-display: "Roboto", "sans-serif";
+  --color-error: #f87171;
+  --color-success: #81c784;
+
+  --font-special: "Space Grotesk", sans-serif;
+  --font-display: "Roboto", sans-serif;
 }
 
 body {

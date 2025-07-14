@@ -18,10 +18,7 @@ const HeroSection = () => {
   );
 
   return (
-    <Container
-      style={{ backgroundImage: "url('src/assets/hero-image.jpg')" }}
-      className="relative bg-cover sm:bg-fixed pt-64 py-32"
-    >
+    <Container className="relative bg-cover sm:bg-fixed pt-64 py-32">
       <div className="flex items-center">
         <div className="absolute inset-0 backdrop-blur" />
         <div className="grid grid-cols-6 gap-y-4 pb-48 z-2">

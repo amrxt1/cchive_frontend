@@ -1,15 +1,13 @@
 import { Link } from "react-router-dom";
-import marketImage from "../../assets/marketplace.jpg";
-import tutorImage from "../../assets/volunteer.jpg";
-import studyGroup from "../../assets/study-group.jpg";
 import Container from "../shared/Container";
 
-function Feature({ title, desc, to, bgUrl }) {
+function Feature({ title, desc, to, bgUrl = "" }) {
   return (
     <div
       className="relative sm:grayscale hover:grayscale-0 col-span-6 w-[100%] 
                   aspect-2/1 flex flex-col justify-end  p-3 rounded-2xl 
-                  bg-center bg-cover mb-12 lg:mb-0 lg:aspect-3/2 lg:col-span-3"
+                  bg-center bg-cover mb-12 lg:mb-0 lg:aspect-3/2 lg:col-span-3
+                  bg-gray-500"
       style={{ backgroundImage: `url(${bgUrl})` }}
     >
       <Link to={to} className="z-10">
@@ -32,25 +30,21 @@ const Features = () => {
           title="Marketplace"
           desc="Buy and sell books, gear, and more."
           to="/marketplace"
-          bgUrl={marketImage}
         />
         <Feature
           title="Study Groups"
           desc="Chat, share files, stay organized."
           to="/study_groups"
-          bgUrl={studyGroup}
         />
         <Feature
           title="Peer Tutoring"
           desc="Find and offer tutoring help."
           to="/tutoring/request"
-          bgUrl={tutorImage}
         />
         <Feature
           title="Course Reviews"
           desc="Leave reviews for instructors and courses."
           to="/courses"
-          bgUrl={marketImage}
         />
       </div>
     </Container>
