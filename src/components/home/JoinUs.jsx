@@ -3,9 +3,20 @@ import Container from "../shared/Container";
 const JoinUs = () => {
   return (
     <Container className="my-32 relative" noPadding>
-      <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-pink-100 via-yellow-100 to-purple-100" />
-      <div className="absolute -top-10 -left-10 w-96 h-96 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 pointer-events-none -z-10 animate-pulse" />
-      <div className="absolute bottom-0 right-10 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 pointer-events-none -z-10 animate-spin-slow" />
+      <div
+        className="absolute inset-0 -z-10 bg-gradient-to-tr
+          from-pink-100 via-yellow-100 to-purple-100"
+      />
+      <div
+        className="absolute -top-10 -left-10 w-96 h-96 bg-pink-300 
+          rounded-full mix-blend-multiply filter blur-3xl opacity-30 
+          pointer-events-none -z-10 animate-pulse"
+      />
+      <div
+        className="absolute bottom-0 right-10 w-96 h-96 bg-purple-300
+          rounded-full mix-blend-multiply filter blur-3xl opacity-25
+          pointer-events-none -z-10 animate-bounce"
+      />
       <div
         className="p-4 py-16 md:p-16 text-center font-special 
                       border-primary flex justify-center
