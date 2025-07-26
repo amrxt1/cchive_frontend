@@ -13,7 +13,7 @@ const JoinUs = () => {
       >
         <div
           className="pb-8 w-full md:w-[50%] lg:w-[40%] xl:w-[33%] flex flex-col gap-12
-                     border-2 p-8 rounded-lg bg-surface/33 
+                     border-2 p-8 rounded-lg bg-surface/44 
                      backdrop-blur-2xl shadow-lg"
         >
           <h1 className="text-4xl font-bold text-primary">Join the Fun</h1>
