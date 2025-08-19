@@ -131,7 +131,7 @@ const Register = () => {
 
             <button
               type="submit"
-              className="border-background bg-text rounded border-2 py-1 text-lg font-bold hover:cursor-pointer"
+              className="border-background bg-accent rounded border-2 py-1 text-lg font-bold hover:cursor-pointer"
             >
               Sign Up
             </button>
