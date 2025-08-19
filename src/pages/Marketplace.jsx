@@ -11,11 +11,12 @@ const Marketplace = () => {
   return (
     <Container className="min-h-screen pt-4">
       <div>
-        <div>
-          <h1>Marketplace</h1>
+        <div className="flex items-center justify-between">
+          <h1 className="text-primary text-2xl font-bold">Marketplace</h1>
+
           <button
             onClick={() => setShowForm(!showForm)}
-            className="bg-primary text-white px-4 py-2 rounded hover:bg-blue-800 transition"
+            className="bg-primary text-surface rounded-lg px-4 py-1 text-lg font-bold"
           >
             {showForm ? "Cancel" : "Create Listing"}
           </button>
@@ -27,8 +28,14 @@ const Marketplace = () => {
           </div>
         )}
 
-        {isLoading && <p className="text-gray-500">Loading Listings...</p>}
-        {error && <p className="text-red-500">Failed to load Listings.</p>}
+        {isLoading && (
+          <p className="text-primary pt-4 text-lg font-bold">
+            Loading Listings...
+          </p>
+        )}
+        {error && (
+          <p className="text-xl text-red-500">Failed to load Listings.</p>
+        )}
 
         <div>
           <ListingsContainer listings={listings} heading={""} />
