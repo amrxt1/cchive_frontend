@@ -17,6 +17,12 @@ function Review({ review }) {
 
 const RecentReviews = () => {
   const { data: reviews, isLoading } = useFeedReviews();
+  if (isLoading)
+    return (
+      <p className="text-primary pt-4 text-lg font-bold">
+        Loading recent reviews...
+      </p>
+    );
 
   return (
     <div>

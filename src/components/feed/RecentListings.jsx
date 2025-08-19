@@ -4,9 +4,12 @@ import ListingsContainer from "../shared/ListingsContainer";
 const RecentListings = () => {
   const { data: listings, isLoading } = useFeedListings();
 
-  if (isLoading) return <p className="p-4">Loading pending requests...</p>;
-
-  if (!listings.length) return <p className="p-4">No pending requests.</p>;
+  if (isLoading)
+    return (
+      <p className="text-primary pt-4 text-lg font-bold">
+        Loading recent Listings...
+      </p>
+    );
 
   return (
     <>
