@@ -28,7 +28,7 @@ const Register = () => {
         form.password,
         form.first_name,
         form.last_name,
-        form.bio
+        form.bio,
       );
       navigate("/feed");
     } catch (err) {
@@ -38,16 +38,19 @@ const Register = () => {
   };
 
   return (
-    <Container className="min-h-screen pt-32">
-      <div className="flex items-center h-full justify-center">
-        <div className="space-y-4 bg-secondary px-4 py-8 rounded-2xl text-background max-w-screen">
+    <Container className="py-16">
+      <div className="flex h-full items-center justify-center">
+        <div className="bg-secondary text-background max-w-screen space-y-4 rounded-2xl px-4 py-8">
           <h1 className="text-5xl font-bold">Create your account</h1>
 
           {error && (
-            <div className="mb-4 text-error font-semibold">{error}</div>
+            <div className="text-error mb-4 font-semibold">{error}</div>
           )}
 
-          <form onSubmit={handleSubmit} className="flex flex-col w-[95%] gap-4">
+          <form
+            onSubmit={handleSubmit}
+            className="text-surface flex flex-col gap-4 text-lg"
+          >
             <div className="flex flex-col">
               <label className="">Email</label>
               <input
@@ -56,12 +59,11 @@ const Register = () => {
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                 required
-                className="text-xl border-2 px-4 py-0.5 rounded                 
-                focus:outline-none focus:ring-2 focus:ring-accent"
+                className="focus:ring-accent rounded border-2 px-4 py-0.5 text-xl focus:ring-2 focus:outline-none"
               />
             </div>
-            <div className="flex flex-col gap-4 sm:flex-row sm:min-w-0">
-              <div className="flex flex-col flex-1 min-w-0">
+            <div className="flex flex-col gap-4 sm:min-w-0 sm:flex-row">
+              <div className="flex min-w-0 flex-1 flex-col">
                 <label>First Name</label>
                 <input
                   type="text"
@@ -70,12 +72,11 @@ const Register = () => {
                   onChange={(e) =>
                     setForm({ ...form, first_name: e.target.value })
                   }
-                  className="text-xl border-2 px-4 py-0.5 rounded                 
-                focus:outline-none focus:ring-2 focus:ring-accent"
+                  className="focus:ring-accent rounded border-2 px-4 py-0.5 text-xl focus:ring-2 focus:outline-none"
                   required
                 />
               </div>
-              <div className="flex flex-col flex-1 min-w-0">
+              <div className="flex min-w-0 flex-1 flex-col">
                 <label>Last Name</label>
                 <input
                   type="text"
@@ -84,14 +85,13 @@ const Register = () => {
                   onChange={(e) =>
                     setForm({ ...form, last_name: e.target.value })
                   }
-                  className="text-xl border-2 px-4 py-0.5 rounded                 
-                focus:outline-none focus:ring-2 focus:ring-accent"
+                  className="focus:ring-accent rounded border-2 px-4 py-0.5 text-xl focus:ring-2 focus:outline-none"
                   required
                 />
               </div>
             </div>
-            <div className="flex flex-col gap-4 sm:flex-row sm:min-w-0 ">
-              <div className="flex flex-col flex-1 min-w-0">
+            <div className="flex flex-col gap-4 sm:min-w-0 sm:flex-row">
+              <div className="flex min-w-0 flex-1 flex-col">
                 <label>Password</label>
                 <input
                   type="password"
@@ -100,12 +100,11 @@ const Register = () => {
                   onChange={(e) =>
                     setForm({ ...form, password: e.target.value })
                   }
-                  className="text-xl border-2 px-4 py-0.5 rounded                 
-                focus:outline-none focus:ring-2 focus:ring-accent"
+                  className="focus:ring-accent rounded border-2 px-4 py-0.5 text-xl focus:ring-2 focus:outline-none"
                   required
                 />
               </div>
-              <div className="flex flex-col flex-1 min-w-0">
+              <div className="flex min-w-0 flex-1 flex-col">
                 <label>Confirm Password</label>
                 <input
                   type="password"
@@ -114,8 +113,7 @@ const Register = () => {
                   onChange={(e) =>
                     setForm({ ...form, password_confirmation: e.target.value })
                   }
-                  className="text-xl border-2 px-4 py-0.5 rounded                 
-                focus:outline-none focus:ring-2 focus:ring-accent"
+                  className="focus:ring-accent rounded border-2 px-4 py-0.5 text-xl focus:ring-2 focus:outline-none"
                   required
                 />
               </div>
@@ -126,15 +124,14 @@ const Register = () => {
                 placeholder="Tell us a little about yourself..."
                 value={form.bio}
                 onChange={(e) => setForm({ ...form, bio: e.target.value })}
-                className="text-xl border-2 px-4 py-2 rounded                 
-                focus:outline-none focus:ring-2 focus:ring-accent"
+                className="focus:ring-accent rounded border-2 px-4 py-2 text-xl focus:ring-2 focus:outline-none"
                 rows={3}
               />
             </div>
 
             <button
               type="submit"
-              className="border-2 text-lg py-1 rounded border-background bg-accent font-bold hover:cursor-pointer"
+              className="border-background bg-text rounded border-2 py-1 text-lg font-bold hover:cursor-pointer"
             >
               Sign Up
             </button>

@@ -23,7 +23,7 @@ const HeroSection = () => {
 
   return (
     <Container className="py-32">
-      <div className="z-2 grid grid-cols-6 gap-y-4 pb-40">
+      <div className="z-2 grid grid-cols-6 gap-y-4 pb-32">
         <div className="font-special col-span-6 text-5xl font-bold">
           Get Connected.
         </div>
