@@ -7,7 +7,7 @@ const Container = ({
   return style ? (
     <div
       className={`${
-        noPadding ? "" : "px-6 sm:px-8 lg:px-32"
+        noPadding ? "" : "px-4 sm:px-8 lg:px-32"
       } ${className} mx-auto`}
       style={style}
     >

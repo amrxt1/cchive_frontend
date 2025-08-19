@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <nav
       className="bg-surface sticky w-full top-0 z-50 flex justify-between items-center 
-                    px-4 py-3 h-16 border-b-3 border-primary "
+                    px-4 py-3 h-16 border-b-3 border-primary text-primary "
     >
       <Link to="/home">
         <div className="flex w-12 items-center">

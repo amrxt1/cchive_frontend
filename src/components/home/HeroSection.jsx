@@ -8,69 +8,45 @@ const HeroSection = () => {
     queryKey: ["users"],
     queryFn: () =>
       fetch("http://localhost:3000/api/v1/search_users").then((res) =>
-        res.json()
+        res.json(),
       ),
   });
 
   const [query, setQuery] = useState("");
-  const filtered = users.filter((u) =>
-    u.username.toLowerCase().includes(query.toLowerCase())
-  );
+  const lowercaseQuery = query.toLowerCase();
+  const filtered = query.length >= 3 ? users.filter((u) => u.username.toLowerCase().includes(lowercaseQuery)).slice(0, 10) : [];
 
   return (
-    <Container className="relative bg-cover sm:bg-fixed pt-64 py-32">
-      <div className="flex items-center">
-        <div className="absolute inset-0 backdrop-blur" />
-        <div className="grid grid-cols-6 gap-y-4 pb-48 z-2">
-          <div className="text-5xl col-span-6 font-special font-bold">
-            Get Connected.
-          </div>
-          <div className="text-2xl col-span-5 font-special">
-            23% of students are on CC Hive. Check if your friends are here:
-          </div>
-          <div className="col-span-5 ">
-            <div className="flex gap-4 items-center">
-              <input
-                className="border-1 border-secondary rounded px-2 w-6/10"
-                type="text"
-                placeholder="Search by Student ID"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-              />
-              <Link
-                to={"/register"}
-                className="flex-1 text-center bg-accent text-background
-                                rounded border-2 border-accent
-                                hover:bg-background hover:text-accent
-                                transform transition hover:scale-107 group
-                                "
-              >
-                <div className="w-full group group-hover:animate-spin">
-                  <img
-                    src="/icon.svg"
-                    alt="logo"
-                    className="w-8 h-8 absolute hidden left-1/9
-                   group-hover:animate-spin group-hover:block "
-                  />
-                  <img
-                    src="/icon.svg"
-                    alt="logo"
-                    className="w-8 h-8 absolute hidden left-2/3
-                  group-hover:animate-spin group-hover:block"
-                  />
-                </div>
-                Get Started
-              </Link>
-            </div>
-            <ul className="absolute text-text/77">
-              {filtered.map((user) => (
-                <li key={user.username}>
-                  {user.first_name} {user.last_name}{" "}
-                  <span>(@{user.username})</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+    <Container className="py-32">
+      <div className="z-2 grid grid-cols-6 gap-y-4 pb-40">
+        <div className="font-special col-span-6 text-5xl font-bold">
+          Get Connected.
+        </div>
+        <div className="font-special col-span-5 text-2xl">
+          23% of students are on CC Hive. Check if your friends are here:
+        </div>
+        <div className="flex relative items-center gap-4 col-span-5 text-lg font-semibold pb-4">
+          <input
+            className="border-surface border-2 w-6/10 rounded-md px-2"
+            type="text"
+            placeholder="Search by Student ID"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+          <Link
+            to={"/register"}
+            className="bg-accent text-surface rounded-md border-2 text-center px-2"
+          >
+            Get Started
+          </Link>
+          <ul className="text-text/77 text-lg absolute top-full">
+            {filtered.map((user) => (
+              <li key={user.username}>
+                {user.first_name} {user.last_name}{" "}
+                <span>({user.username})</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </Container>
