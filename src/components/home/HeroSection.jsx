@@ -14,7 +14,12 @@ const HeroSection = () => {
 
   const [query, setQuery] = useState("");
   const lowercaseQuery = query.toLowerCase();
-  const filtered = query.length >= 3 ? users.filter((u) => u.username.toLowerCase().includes(lowercaseQuery)).slice(0, 10) : [];
+  const filtered =
+    query.length >= 3
+      ? users
+          .filter((u) => u.username.toLowerCase().includes(lowercaseQuery))
+          .slice(0, 10)
+      : [];
 
   return (
     <Container className="py-32">
@@ -25,9 +30,9 @@ const HeroSection = () => {
         <div className="font-special col-span-5 text-2xl">
           23% of students are on CC Hive. Check if your friends are here:
         </div>
-        <div className="flex relative items-center gap-4 col-span-5 text-lg font-semibold pb-4">
+        <div className="relative col-span-5 flex items-center gap-4 pb-4 text-lg font-semibold">
           <input
-            className="border-surface border-2 w-6/10 rounded-md px-2"
+            className="border-surface w-6/10 rounded-md border-2 px-2"
             type="text"
             placeholder="Search by Student ID"
             value={query}
@@ -35,11 +40,11 @@ const HeroSection = () => {
           />
           <Link
             to={"/register"}
-            className="bg-accent text-surface rounded-md border-2 text-center px-2"
+            className="bg-accent text-surface rounded-md border-2 px-2 text-center"
           >
             Get Started
           </Link>
-          <ul className="text-text/77 text-lg absolute top-full">
+          <ul className="text-text/77 absolute top-full text-lg">
             {filtered.map((user) => (
               <li key={user.username}>
                 {user.first_name} {user.last_name}{" "}
