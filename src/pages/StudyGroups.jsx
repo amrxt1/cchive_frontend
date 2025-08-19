@@ -5,6 +5,47 @@ import { useJoinStudyGroup } from "../hooks/useJoinStudyGroup";
 import { useNavigate } from "react-router-dom";
 import Container from "../components/shared/Container";
 import { Link } from "react-router-dom";
+
+function CreateStudyGroupForm({
+  name,
+  setName,
+  description,
+  setDescription,
+  handleCreate,
+}) {
+  return (
+    <div className="">
+      <h2>Create New Group</h2>
+      <div>
+        <form onSubmit={handleCreate} className="space-y-4">
+          <div>
+            <label>Group Name</label>
+            <input
+              placeholder="Quantum Mechanics Enthusiasts"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </div>
+
+          <div>
+            <label>Description</label>
+            <textarea
+              placeholder="We solve problem sets and drink too much coffee"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              required
+              rows={4}
+            />
+          </div>
+
+          <button type="submit">Create Group</button>
+        </form>
+      </div>
+    </div>
+  );
+}
+
 const StudyGroups = () => {
   const { data: groups, isLoading } = useStudyGroups();
   const { mutate: createGroup } = useCreateStudyGroup();
@@ -30,27 +71,46 @@ const StudyGroups = () => {
       },
     });
   };
+  const [formOpen, setFormOpen] = useState(false);
 
   return (
     <Container className="min-h-screen">
       <div>
-        <h1 className="text-3xl font-bold text-primary flex items-center gap-2">
-          Study Groups{" "}
-        </h1>
-        <Link to={"/approve_memberships"}>Approve Memberships</Link>
+        <div className="flex items-center justify-between pt-4">
+          <h1 className="text-primary text-3xl font-bold">Study Groups </h1>
+          <div className="grid gap-y-1">
+            <Link
+              to={"/approve_memberships"}
+              className="bg-primary text-surface w-full rounded-lg px-2 py-1 text-lg font-bold"
+            >
+              Approve Memberships
+            </Link>
+            <button
+              className="bg-primary text-surface w-full rounded-lg px-2 py-1 text-lg font-bold"
+              onClick={() => {
+                setFormOpen(!formOpen);
+              }}
+            >
+              {formOpen ? "Cancel" : "Create New"}
+            </button>
+          </div>
+        </div>
+        {formOpen && (
+          <CreateStudyGroupForm
+            name={name}
+            setName={setName}
+            description={description}
+            setDescription={setDescription}
+            handleCreate={handleCreate}
+          />
+        )}
 
-        <div className="grid grid-cols-2 gap-8 pt-4 ">
+        <div className="grid grid-cols-2 gap-8 pt-4">
           <div>
-            <div className="flex items-baseline gap-2 ">
-              <h2 className="text-2xl font-semibold text-primary">
+            <div className="flex items-baseline gap-2">
+              <h2 className="text-primary text-2xl font-semibold">
                 Available Groups
               </h2>
-              <button
-                className="hover:cursor-pointer hover:bg-accent/70 font-bold
-                                 bg-accent/50 text-primary px-4 rounded-lg "
-              >
-                Create New
-              </button>
             </div>
             {isLoading ? (
               <p className="text-gray-500">Loading...</p>
@@ -62,7 +122,7 @@ const StudyGroups = () => {
                     <p>{group.description}</p>
                     <button
                       onClick={() => handleJoin(group.id)}
-                      className="text-primary bg-surface px-3 py-1 rounded-lg"
+                      className="text-primary bg-surface rounded-lg px-3 py-1"
                     >
                       Join
                     </button>
@@ -72,7 +132,7 @@ const StudyGroups = () => {
             )}
           </div>
           <div>
-            <h2 className="text-2xl font-semibold text-primary">
+            <h2 className="text-primary text-2xl font-semibold">
               Joined Groups
             </h2>
             {isLoading ? (
@@ -85,7 +145,7 @@ const StudyGroups = () => {
                     <p>{group.description}</p>
                     <button
                       onClick={() => navigate(`/study_groups/${group.id}`)}
-                      className="text-primary bg-surface px-3 py-1 rounded-lg"
+                      className="text-primary bg-surface rounded-lg px-3 py-1"
                     >
                       Chat
                     </button>
@@ -93,36 +153,6 @@ const StudyGroups = () => {
                 ))}
               </ul>
             )}
-          </div>
-
-          <div className="">
-            <h2>Create New Group</h2>
-            <div>
-              <form onSubmit={handleCreate} className="space-y-4">
-                <div>
-                  <label>Group Name</label>
-                  <input
-                    placeholder="Quantum Mechanics Enthusiasts"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label>Description</label>
-                  <textarea
-                    placeholder="We solve problem sets and drink too much coffee"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    required
-                    rows={4}
-                  />
-                </div>
-
-                <button type="submit">Create Group</button>
-              </form>
-            </div>
           </div>
         </div>
       </div>
