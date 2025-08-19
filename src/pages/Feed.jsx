@@ -9,7 +9,7 @@ const Feed = () => {
   return (
     <>
       <Container className="min-h-screen">
-        <div className="pt-4 lg:pt-8 font-semibold text-xl text-primary ">
+        <div className="text-primary pt-4 text-xl font-semibold lg:pt-8">
           {user.first_name}'s Feed
         </div>
         <RecentListings />

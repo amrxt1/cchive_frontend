@@ -12,7 +12,7 @@ const ReviewList = ({ reviewableType, reviewableId, className }) => {
 
   if (!reviews || reviews.length === 0)
     return (
-      <p className="font-semibold py-2">
+      <p className="py-2 font-semibold">
         No reviews yet. Be the first to write one!
       </p>
     );

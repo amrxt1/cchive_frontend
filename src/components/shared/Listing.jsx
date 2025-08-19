@@ -2,28 +2,25 @@ import { Link } from "react-router-dom";
 
 const Listing = ({ listing }) => {
   return (
-    <div
-      className="bg-surface p-6 rounded-2xl shadow-md flex 
-      flex-col justify-between gap-4 hover:shadow-lg transition h-full"
-    >
-      <div className="flex-1 flex flex-col justify-between">
+    <div className="bg-surface flex h-full flex-col justify-between gap-4 rounded-lg p-4 shadow-md transition hover:shadow-lg">
+      <div className="flex flex-1 flex-col justify-between">
         <div>
-          <h3 className="text-xl font-bold text-text-primary">
+          <h3 className="text-text-primary text-xl font-bold">
             {listing.title}
           </h3>
-          <p className="text-sm text-text-secondary mt-1 line-clamp-2">
+          <p className="text-text-secondary mt-1 line-clamp-2 text-sm">
             {listing.description}
           </p>
         </div>
       </div>
 
-      <div className="flex justify-between items-center mt-4">
-        <p className="text-lg font-bold text-primary">
+      <div className="mt-4 flex items-center justify-between">
+        <p className="text-primary text-lg font-bold">
           ${parseFloat(listing.price).toFixed(2)}
         </p>
         <Link
           to={`/user/${listing.seller_id}`}
-          className="text-xs bg-primary/20 text-primary px-3 py-1 rounded-full hover:bg-primary/30 transition"
+          className="bg-primary/20 text-primary hover:bg-primary/30 rounded-full px-3 py-1 text-xs transition"
         >
           @{listing.seller}
         </Link>
