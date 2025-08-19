@@ -14,34 +14,33 @@ function CreateStudyGroupForm({
   handleCreate,
 }) {
   return (
-    <div className="">
-      <h2>Create New Group</h2>
-      <div>
-        <form onSubmit={handleCreate} className="space-y-4">
-          <div>
-            <label>Group Name</label>
-            <input
-              placeholder="Quantum Mechanics Enthusiasts"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          </div>
+    <div className="bg-surface mt-2 rounded-md px-2 py-4">
+      <h2 className="text-primary text-xl font-bold">Create New Group</h2>
+      <form onSubmit={handleCreate} className="grid gap-y-2 py-2">
+        <input
+          className="bg-background text-md rounded-md px-2 py-1"
+          placeholder="Name: Quantum Mechanics Enthusiasts"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
 
-          <div>
-            <label>Description</label>
-            <textarea
-              placeholder="We solve problem sets and drink too much coffee"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              required
-              rows={4}
-            />
-          </div>
+        <textarea
+          className="bg-background text-md resize-none rounded-md px-2 py-1"
+          placeholder="Description: We solve problem sets and drink too much coffee"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          required
+          rows={4}
+        />
 
-          <button type="submit">Create Group</button>
-        </form>
-      </div>
+        <button
+          type="submit"
+          className="bg-primary text-surface mt-2 w-full rounded-lg px-2 py-1 text-lg font-bold"
+        >
+          Create Group
+        </button>
+      </form>
     </div>
   );
 }
