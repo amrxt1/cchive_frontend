@@ -12,10 +12,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav
-      className="bg-surface sticky w-full top-0 z-50 flex justify-between items-center 
-                    px-4 py-3 h-16 border-b-3 border-primary text-primary "
-    >
+    <nav className="bg-surface border-primary text-primary sticky top-0 z-50 flex h-16 w-full items-center justify-between border-b-3 px-4 py-3">
       <Link to="/home">
         <div className="flex w-12 items-center">
           <img src={logo} alt="CCHive logo" />

@@ -33,6 +33,7 @@ const Marketplace = () => {
             Loading Listings...
           </p>
         )}
+
         {error && (
           <p className="text-xl text-red-500">Failed to load Listings.</p>
         )}

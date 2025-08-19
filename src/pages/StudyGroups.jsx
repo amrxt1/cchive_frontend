@@ -70,12 +70,21 @@ const StudyGroups = () => {
       },
     });
   };
+
   const [formOpen, setFormOpen] = useState(false);
+  const [showAvailable, setShowAvailable] = useState(false);
+
+  if (isLoading)
+    return (
+      <p className="text-primary pt-4 text-lg font-bold">
+        Loading Study Groups...
+      </p>
+    );
 
   return (
-    <Container className="min-h-screen">
+    <>
       <div>
-        <div className="flex items-center justify-between pt-4">
+        <div className="bg-surface my-4 flex items-center justify-between px-2 py-1">
           <h1 className="text-primary text-3xl font-bold">Study Groups </h1>
           <div className="grid gap-y-1">
             <Link
@@ -103,59 +112,86 @@ const StudyGroups = () => {
             handleCreate={handleCreate}
           />
         )}
-
-        <div className="grid grid-cols-2 gap-8 pt-4">
-          <div>
-            <div className="flex items-baseline gap-2">
-              <h2 className="text-primary text-2xl font-semibold">
-                Available Groups
-              </h2>
-            </div>
-            {isLoading ? (
-              <p className="text-gray-500">Loading...</p>
-            ) : (
-              <ul className="flex flex-col gap-4 pt-4">
-                {groups.available.map((group) => (
-                  <li key={group.id}>
-                    <h3 className="text-2xl font-semibold">{group.name}</h3>
-                    <p>{group.description}</p>
-                    <button
-                      onClick={() => handleJoin(group.id)}
-                      className="text-primary bg-surface rounded-lg px-3 py-1"
-                    >
-                      Join
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-          <div>
-            <h2 className="text-primary text-2xl font-semibold">
-              Joined Groups
-            </h2>
-            {isLoading ? (
-              <p className="text-gray-500">Loading...</p>
-            ) : (
-              <ul className="flex flex-col gap-4 pt-4">
-                {groups.joined.map((group) => (
-                  <li key={group.id}>
-                    <h3 className="text-2xl font-semibold">{group.name}</h3>
-                    <p>{group.description}</p>
-                    <button
-                      onClick={() => navigate(`/study_groups/${group.id}`)}
-                      className="text-primary bg-surface rounded-lg px-3 py-1"
-                    >
-                      Chat
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        </div>
       </div>
-    </Container>
+
+      <Container className="min-h-screen">
+        <div className="grid grid-cols-2">
+          <button
+            className={
+              !showAvailable
+                ? "text-primary text-xl font-bold"
+                : "text-text text-xl font-bold"
+            }
+            onClick={() => {
+              setShowAvailable(false);
+            }}
+          >
+            Joined Groups
+          </button>
+          <button
+            className={
+              showAvailable
+                ? "text-primary text-xl font-bold"
+                : "text-text text-xl font-bold"
+            }
+            onClick={() => {
+              setShowAvailable(true);
+            }}
+          >
+            Available
+          </button>
+        </div>
+
+        {groups?.available &&
+          showAvailable &&
+          (groups.available.length === 0 ? (
+            <div className="p-4 text-center text-lg italic">
+              No Study Groups to join.
+            </div>
+          ) : (
+            <ul className="flex flex-col gap-4 pt-4">
+              {groups.available.map((group) => (
+                <li
+                  key={group.id}
+                  className="bg-surface grid grid-cols-4 rounded-lg px-2 py-4"
+                >
+                  <div className="col-span-3">
+                    <h3 className="text-2xl font-semibold">{group.name}</h3>
+                    <p>{group.description}</p>
+                  </div>
+                  <button
+                    onClick={() => handleJoin(group.id)}
+                    className="text-surface bg-primary rounded-lg px-3 py-1 font-bold"
+                  >
+                    Join
+                  </button>
+                </li>
+              ))}
+            </ul>
+          ))}
+        {groups?.joined && !showAvailable && (
+          <ul className="flex flex-col gap-4 pt-4">
+            {groups.joined.map((group) => (
+              <li
+                key={group.id}
+                className="bg-surface grid grid-cols-4 rounded-lg px-2 py-4"
+              >
+                <div className="col-span-3">
+                  <h3 className="text-2xl font-semibold">{group.name}</h3>
+                  <p>{group.description}</p>
+                </div>
+                <button
+                  onClick={() => navigate(`/study_groups/${group.id}`)}
+                  className="text-surface bg-primary rounded-lg px-3 py-1 font-bold"
+                >
+                  Chat
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </Container>
+    </>
   );
 };
 
