@@ -19,9 +19,9 @@ const features = [
     to: "/tutoring/request",
   },
   {
-    title: "Course Reviews",
+    title: "Reviews",
     desc: "Leave reviews for instructors and courses.",
-    to: "/courses",
+    to: "/reviews",
   },
 ];
 
