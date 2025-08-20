@@ -26,12 +26,12 @@ const CourseDetail = () => {
   return (
     <Container className="min-h-screen">
       <div className="mt-4">
-        <div className="bg-surface px-8 py-4 rounded-lg">
+        <div className="bg-surface rounded-lg px-8 py-4">
           <h1 className="text-primary text-xl font-semibold">{course.title}</h1>
           <p className="font-semibold">
             {course.subject + " " + course.course_number}
           </p>
-          <p className="py-2 text-text-muted">{course.description}</p>
+          <p className="text-text-muted py-2">{course.description}</p>
           <p>
             <span className="text-secondary font-semibold">Credits:</span>{" "}
             {course.credits}
@@ -43,7 +43,7 @@ const CourseDetail = () => {
             {course.avg_rating}
           </p>
         </div>
-        <div className="px-8 py-4 mt-4 bg-surface rounded-lg ">
+        <div className="bg-surface mt-4 rounded-lg px-8 py-4">
           <ReviewForm reviewableType="Course" reviewableId={id} />
           <ReviewList reviewableType="Course" reviewableId={id} />
         </div>
