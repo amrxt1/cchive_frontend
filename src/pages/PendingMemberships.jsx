@@ -16,7 +16,6 @@ const PendingMemberships = () => {
 
   return (
     <Container className="min-h-screen py-8">
-      {console.log(pending)}
       <h1 className="text-primary mb-6 text-3xl font-bold">
         Pending Membership Requests
       </h1>
