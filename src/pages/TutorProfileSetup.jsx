@@ -18,21 +18,40 @@ const TutorProfileSetup = () => {
     mutate({ tutor_profile: { subjects: subjectList } });
   };
 
-  if (isLoading) return <p>Loading profile status...</p>;
+  if (isLoading)
+    return (
+      <p className="mt-4 text-center text-xl italic">
+        Loading profile status...
+      </p>
+    );
 
   if (profile) {
     return (
-      <div>
-        <h1>You're a Tutor 🎓</h1>
-        <p>Subjects:</p>
-        <ul>
-          {profile.subjects.map((subj, i) => (
-            <li key={i}>{subj}</li>
-          ))}
-        </ul>
-
-        <Link to="/tutoring/request">Need Tutoring Instead?</Link>
-      </div>
+      <Container className="min-h-screen">
+        <div>
+          <h1 className="text-primary mt-4 text-2xl font-bold">
+            You are a Tutor 🎓
+          </h1>
+          <p className="text-primary mt-4 text-lg font-bold">
+            Subjects selected:
+          </p>
+          <ul className="bg-surface space-y-2 rounded-lg px-2 py-4">
+            {profile.subjects.map((subj, i) => (
+              <li key={i} className="text-md">
+                {subj}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="mt-4">
+          <Link
+            to="/tutoring/request"
+            className="text-primary font-bold underline"
+          >
+            Need Tutoring Instead?
+          </Link>
+        </div>
+      </Container>
     );
   }
 
