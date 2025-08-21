@@ -23,14 +23,14 @@ const HeroSection = () => {
 
   return (
     <Container className="py-32">
-      <div className="z-2 grid grid-cols-6 gap-y-4 pb-32">
-        <div className="font-special col-span-6 text-5xl font-bold">
+      <div className="z-2 grid grid-cols-12 gap-y-4 pb-32">
+        <div className="font-special col-span-12 text-5xl font-bold">
           Get Connected.
         </div>
-        <div className="font-special col-span-5 text-2xl">
+        <div className="font-special col-span-10 text-2xl">
           23% of students are on CC Hive. Check if your friends are here:
         </div>
-        <div className="relative col-span-5 flex items-center gap-4 pb-4 text-lg font-semibold">
+        <div className="relative col-span-11 flex items-center justify-between gap-4 pb-4 text-lg">
           <input
             className="border-surface w-6/10 rounded-md border-2 px-2"
             type="text"
@@ -40,7 +40,7 @@ const HeroSection = () => {
           />
           <Link
             to={"/register"}
-            className="bg-accent text-surface rounded-md border-2 px-2 text-center"
+            className="bg-accent text-surface rounded-md px-2 text-center font-bold"
           >
             Get Started
           </Link>
