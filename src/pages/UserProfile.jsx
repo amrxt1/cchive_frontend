@@ -47,7 +47,7 @@ const UserProfile = () => {
       )}
 
       {user.tutor_profile && (
-        <div className="bg-surface rounded-md p-4">
+        <div className="bg-surface mt-4 rounded-md p-4">
           <h2 className="text-primary text-xl font-bold">Tutoring Subjects</h2>
           <ul>
             {user.tutor_profile.subjects.map((s, i) => (
