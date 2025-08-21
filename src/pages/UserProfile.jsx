@@ -48,7 +48,12 @@ const UserProfile = () => {
 
       {user.tutor_profile && (
         <div className="bg-surface mt-4 rounded-md p-4">
-          <h2 className="text-primary text-xl font-bold">Tutoring Subjects</h2>
+          <Link
+            to={"/tutoring/request"}
+            className="text-primary text-xl font-bold"
+          >
+            Tutoring Subjects
+          </Link>
           <ul>
             {user.tutor_profile.subjects.map((s, i) => (
               <li key={i}>{s}</li>

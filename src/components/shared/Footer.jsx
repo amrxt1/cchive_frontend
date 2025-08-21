@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="py-6 mt-16 mb-8 lg:mt-32 lg:mb-16 font-mono">
+    <footer className="mt-16 mb-8 py-6 font-mono lg:mt-32 lg:mb-16">
       <div>
         <div className="w-100% bg-text h-[1px]"></div>
         <p className="text-center">
@@ -17,6 +17,35 @@ const Footer = () => {
             View source
           </a>
         </p>
+      </div>
+      <div className="mt-12 px-4 text-xs">
+        <h3>Flaticon Attributions:</h3>
+        <div className="grid underline">
+          <a
+            href="https://www.flaticon.com/free-icons/books"
+            title="books icons"
+          >
+            Books icons created by Freepik
+          </a>
+          <a
+            href="https://www.flaticon.com/free-icons/study"
+            title="study icons"
+          >
+            Study icons created by Freepik
+          </a>
+          <a
+            href="https://www.flaticon.com/free-icons/discussion"
+            title="discussion icons"
+          >
+            Discussion icons created by Freepik
+          </a>
+          <a
+            href="https://www.flaticon.com/free-icons/reviews"
+            title="reviews icons"
+          >
+            Reviews icons created by Freepik
+          </a>
+        </div>
       </div>
     </footer>
   );
