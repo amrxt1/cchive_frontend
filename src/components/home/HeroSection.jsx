@@ -2,14 +2,15 @@ import Container from "../shared/Container";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+import api from "../../lib/api";
 
 const HeroSection = () => {
   const { data: users = [] } = useQuery({
-    queryKey: ["users"],
-    queryFn: () =>
-      fetch("http://localhost:3000/api/v1/search_users").then((res) =>
-        res.json(),
-      ),
+    queryKey: ["search_users"],
+    queryFn: async () => {
+      const res = await api.get(`/search_users`);
+      return res.data;
+    },
   });
 
   const [query, setQuery] = useState("");
