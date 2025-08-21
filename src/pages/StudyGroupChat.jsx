@@ -27,7 +27,6 @@ const StudyGroupChat = () => {
       { channel: "StudyGroupChannel", study_group_id: studyGroupId },
       {
         received: (data) => {
-          console.log(data);
           setMessages((prev) => [...prev, data]);
         },
       },
