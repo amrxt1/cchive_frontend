@@ -1,7 +1,10 @@
 import axios from "axios";
 
+const API_URL =
+  import.meta.env.CCHIVE_API_URL || "https://localhost:3000/api/v1";
+
 const api = axios.create({
-  baseURL: "http://localhost:3000/api/v1",
+  baseURL: API_URL,
 });
 
 api.interceptors.request.use((config) => {
@@ -27,7 +30,7 @@ api.interceptors.response.use(
     }
     return response;
   },
-  (error) => Promise.reject(error)
+  (error) => Promise.reject(error),
 );
 
 export default api;
