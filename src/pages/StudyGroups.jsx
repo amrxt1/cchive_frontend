@@ -84,7 +84,7 @@ const StudyGroups = () => {
   return (
     <>
       <div>
-        <div className="bg-surface my-4 flex items-center justify-between px-2 py-1">
+        <div className="bg-surface my-4 flex items-center justify-between px-4 py-1">
           <h1 className="text-primary text-3xl font-bold">Study Groups </h1>
           <div className="grid gap-y-1">
             <Link
@@ -114,34 +114,33 @@ const StudyGroups = () => {
         )}
       </div>
 
+      <div className="grid grid-cols-2">
+        <button
+          className={
+            !showAvailable
+              ? "text-primary border-b-3 text-xl font-bold"
+              : "text-text border-surface border-b-3 text-xl font-bold"
+          }
+          onClick={() => {
+            setShowAvailable(false);
+          }}
+        >
+          Joined Groups
+        </button>
+        <button
+          className={
+            showAvailable
+              ? "text-primary border-b-3 text-xl font-bold"
+              : "text-text border-surface border-b-3 text-xl font-bold"
+          }
+          onClick={() => {
+            setShowAvailable(true);
+          }}
+        >
+          Available
+        </button>
+      </div>
       <Container className="min-h-screen">
-        <div className="grid grid-cols-2">
-          <button
-            className={
-              !showAvailable
-                ? "text-primary text-xl font-bold"
-                : "text-text text-xl font-bold"
-            }
-            onClick={() => {
-              setShowAvailable(false);
-            }}
-          >
-            Joined Groups
-          </button>
-          <button
-            className={
-              showAvailable
-                ? "text-primary text-xl font-bold"
-                : "text-text text-xl font-bold"
-            }
-            onClick={() => {
-              setShowAvailable(true);
-            }}
-          >
-            Available
-          </button>
-        </div>
-
         {groups?.available &&
           showAvailable &&
           (groups.available.length === 0 ? (
@@ -157,7 +156,7 @@ const StudyGroups = () => {
                 >
                   <div className="col-span-3">
                     <h3 className="text-2xl font-semibold">{group.name}</h3>
-                    <p>{group.description}</p>
+                    <p className="text-text/70">{group.description}</p>
                   </div>
                   <button
                     onClick={() => handleJoin(group.id)}
@@ -178,7 +177,7 @@ const StudyGroups = () => {
               >
                 <div className="col-span-3">
                   <h3 className="text-2xl font-semibold">{group.name}</h3>
-                  <p>{group.description}</p>
+                  <p className="text-text/70">{group.description}</p>
                 </div>
                 <button
                   onClick={() => navigate(`/study_groups/${group.id}`)}
