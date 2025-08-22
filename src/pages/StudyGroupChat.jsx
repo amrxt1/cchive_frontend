@@ -59,11 +59,11 @@ const StudyGroupChat = () => {
   };
 
   return (
-    <Container className="min-h-screen">
-      <div className="relative mt-4 pb-20">
+    <Container className="overflow-clip">
+      <div className="mt-4 grid h-[100vh] gap-y-4 pb-20">
         <h1 className="text-primary text-3xl font-bold">Study Group Chat</h1>
 
-        <div className="bg-surface mt-4 rounded-md px-2 py-4">
+        <div className="bg-surface overflow-scroll rounded-md px-2 py-4">
           {messages.map((msg, i) => (
             <div key={i} className="mb-2">
               <span className="text-primary">{msg.full_name}</span>:{" "}
@@ -83,16 +83,18 @@ const StudyGroupChat = () => {
 
         <form
           onSubmit={handleSubmit}
-          className="bg-surface absolute bottom-0 grid w-full grid-cols-4 rounded-md px-2 py-1"
+          className="bg-surface grid w-full grid-cols-4 gap-x-2 rounded-md px-2 py-2"
         >
           <input
             type="text"
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            className="bg-background text-md border-surface col-span-3 rounded-md border-2 px-2 py-1"
+            className="bg-background text-md border-primary col-span-3 rounded-md border-2 px-2 py-1"
             placeholder="Type your message..."
           />
-          <button>Send</button>
+          <button className="bg-background border-primary rounded-md border-2">
+            Send
+          </button>
         </form>
       </div>
     </Container>
