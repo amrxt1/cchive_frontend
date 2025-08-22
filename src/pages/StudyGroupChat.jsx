@@ -69,7 +69,7 @@ const StudyGroupChat = () => {
               <span className="text-primary">{msg.full_name}</span>:{" "}
               <span className="text-base">{msg.message || msg.content}</span>{" "}
               {msg.created_at && (
-                <span className="text-xs">
+                <span className="text-text/60 text-xs">
                   {new Date(msg.created_at).toLocaleTimeString([], {
                     hour: "2-digit",
                     minute: "2-digit",
