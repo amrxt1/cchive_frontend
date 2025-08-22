@@ -13,7 +13,7 @@ export const CableProvider = ({ children }) => {
     const token = localStorage.getItem("access-token");
 
     const cableConnection = ActionCable.createConsumer(
-      `ws://${API_URL}/cable?uid=${uid}&client=${client}&access-token=${token}`,
+      `wss://${API_URL}/cable?uid=${uid}&client=${client}&access-token=${token}`,
     );
 
     setCableInstance(cableConnection);
