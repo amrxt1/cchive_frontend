@@ -31,8 +31,8 @@ const ReviewList = ({ reviewableType, reviewableId, className }) => {
               </span>
               <span>Rating: {review.rating}/5</span>
             </div>
-            <p>{review.author} says :</p>
-            <p>{review.content}</p>
+            <p className="text-primary">{review.author} says :</p>
+            <p className="text-text/70">{review.content}</p>
           </div>
         ))}
       </div>
