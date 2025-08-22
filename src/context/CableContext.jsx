@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import * as ActionCable from "@rails/actioncable";
 
 const CableContext = createContext(null);
-const API_URL = import.meta.env.VITE_CCHIVE_WS_URL;
+const WS_URL = import.meta.env.VITE_CCHIVE_WS_URL;
 
 export const CableProvider = ({ children }) => {
   const [cableInstance, setCableInstance] = useState(null);
@@ -13,7 +13,7 @@ export const CableProvider = ({ children }) => {
     const token = localStorage.getItem("access-token");
 
     const cableConnection = ActionCable.createConsumer(
-      `wss://${API_URL}/cable?uid=${uid}&client=${client}&access-token=${token}`,
+      `${WS_URL}/cable?uid=${uid}&client=${client}&access-token=${token}`,
     );
 
     setCableInstance(cableConnection);
