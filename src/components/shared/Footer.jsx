@@ -3,7 +3,7 @@ const Footer = () => {
     <footer className="mt-16 mb-8 py-6 font-mono lg:mt-32 lg:mb-16">
       <div>
         <div className="w-100% bg-text h-[1px]"></div>
-        <p className="text-center">
+        <p className="pt-4 text-center text-sm">
           © {new Date().getFullYear()} CCHive. <br /> Built by students, for
           students.
         </p>
@@ -20,7 +20,7 @@ const Footer = () => {
       </div>
       <div className="mt-12 px-4 text-xs">
         <h3>Flaticon Attributions:</h3>
-        <div className="grid underline">
+        <div className="grid">
           <a
             href="https://www.flaticon.com/free-icons/books"
             title="books icons"
