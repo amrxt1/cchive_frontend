@@ -7,50 +7,36 @@ const features = [
     title: "Marketplace",
     desc: "Buy and sell books, gear, and more.",
     to: "/marketplace",
-    imageUrl: "/home/books.png",
   },
   {
     title: "Study Groups",
     desc: "Chat, share files, stay organized.",
     to: "/study_groups",
-    imageUrl: "/home/study-group.png",
   },
   {
     title: "Peer Tutoring",
     desc: "Find and offer tutoring help.",
     to: "/tutoring/request",
-    imageUrl: "/home/tutoring.png",
   },
   {
     title: "Reviews",
     desc: "Leave reviews for instructors and courses.",
     to: "/reviews",
-    imageUrl: "/home/reviews.png",
   },
 ];
 
-function Feature({ title, desc, to, right, imageUrl }) {
+function Feature({ title, desc, to }) {
   return (
-    <div className="bg-surface col-span-6 grid grid-cols-2 overflow-clip rounded-md">
-      {right && <ImageDiv imageUrl={imageUrl} />}
-      <div className="flex h-40 flex-col justify-center gap-2 px-4">
+    <div className="bg-surface sticky top-20 col-span-6 overflow-clip rounded-md">
+      <div className="px-4 py-8">
         <Link to={to} className="z-10">
-          <h3 className="text-primary font-special z-2 text-2xl">{title}</h3>
+          <h3 className="text-primary font-special z-2 text-2xl font-bold">
+            {title}
+          </h3>
         </Link>
-        <p className="text-md">{desc}</p>
+        <p className="text-lg">{desc}</p>
       </div>
-      {!right && <ImageDiv imageUrl={imageUrl} />}
     </div>
-  );
-}
-
-function ImageDiv({ imageUrl = false }) {
-  return imageUrl ? (
-    <div className="scale-77 bg-none p-4">
-      <img src={imageUrl} alt="" />
-    </div>
-  ) : (
-    <></>
   );
 }
 
@@ -67,8 +53,6 @@ const Features = () => {
             title={feature.title}
             desc={feature.desc}
             to={feature.to}
-            imageUrl={feature.imageUrl}
-            right={index % 2 == 1 ? true : false}
           />
         ))}
       </div>
