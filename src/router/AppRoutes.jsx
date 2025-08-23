@@ -18,6 +18,7 @@ import PrivateRoute from "../components/PrivateRoute";
 import UserProfile from "../pages/UserProfile";
 import PendingMemberships from "../pages/PendingMemberships";
 import Reviews from "../pages/Reviews";
+import ContactUs from "../pages/ContactUs";
 
 const AppRoutes = () => {
   const { user } = useAuth();
@@ -26,6 +27,7 @@ const AppRoutes = () => {
     <Routes>
       <Route path="/" element={!user ? <Login /> : <Navigate to="/feed" />} />
       <Route path="/home" element={<Home />} />
+      <Route path="/contact" element={<ContactUs />} />
       <Route
         path="/login"
         element={!user ? <Login /> : <Navigate to="/feed" />}

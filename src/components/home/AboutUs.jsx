@@ -29,10 +29,16 @@ const AboutUs = () => {
           classroom, now ready to help students thrive.
         </p>
         <div className="grid grid-cols-2 gap-2 font-bold">
-          <Link className="bg-primary text-surface w-full rounded-md py-1 text-center">
+          <Link
+            className="bg-primary text-surface w-full rounded-md py-1 text-center"
+            to={"/contact"}
+          >
             Contact Us
           </Link>
-          <Link className="bg-accent text-surface w-full rounded-md py-1 text-center">
+          <Link
+            className="bg-accent text-surface w-full rounded-md py-1 text-center"
+            to={"/register"}
+          >
             Get Started
           </Link>
         </div>
